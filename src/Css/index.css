@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('https://play.hbomax.com/assets/images/backgrounds/hbomax/default_1920x1080.png')
 }
 
 code {
