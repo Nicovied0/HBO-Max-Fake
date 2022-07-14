@@ -31,16 +31,25 @@
 const API_KEY = "1977a73f";
 // http://www.omdbapi.com/?apikey=$1977a73f&i=${id}`   
 
+export const ADD_MOVIE_FAVORITE = 'ADD_MOVIE_FAVORITE';
+export const GET_MOVIES = 'GET_MOVIES';
+export const GET_MOVIES_DETAIL = 'GET_MOVIES_DETAIL';
+export const REMOVE_MOVIE_DETAIL = 'REMOVE_MOVIE_DETAIL';
+
+
+
+
 
 export function addMovieFavorite(payload) {
     return {
-        type: "ADD_MOVIE_FAVORITE",
+        type: ADD_MOVIE_FAVORITE,
         payload
     };
 }
+
 export function removeMovieFavorite(payload) {
     return {
-        type: "REMOVE_MOVIE_FAVORITE",
+        type: REMOVE_MOVIE_DETAIL,
         payload
     }
 }
@@ -51,7 +60,7 @@ export function getMovies(titule) {
             .then(response => response.json())
             .then(movie => {
                 dispatch({
-                    type: "GET_MOVIES",
+                    type: GET_MOVIES,
                     payload: movie
                 });
             });
@@ -65,7 +74,7 @@ export function getMovieDetail(id) {
             .then(r => r.json())
             .then(movie => {
                 dispatch({
-                    type: "GET_DETAIL",
+                    type: GET_MOVIES_DETAIL,
                     payload: movie
                 });
             });
