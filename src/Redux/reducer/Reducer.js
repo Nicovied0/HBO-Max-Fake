@@ -1,52 +1,44 @@
-import {
-    ADD_MOVIE_FAVORITE,
-    GET_MOVIES,
-    GET_MOVIES_DETAIL,
-    REMOVE_MOVIE_DETAIL,
-} from '../action/Actions';
+
+// initial state
 
 const initialState = {
-    moviesFavourities: [],
+    moviesFavourites: [], //
     moviesLoaded: [],
-    moviesDeatail: {}
-}
-
-function rootReducer(state = initialState, action) {
-    if (action.type === ADD_MOVIE_FAVORITE) {
-        return {
-            ...state,
-            moviesFavourities: [...state.moviesFavourities.concat(action.payload)]
-        }
+    movieDetail: {},
+  };
+  
+  // fn reducer
+  
+  function rootReducer(state = initialState, action) {
+    if (action.type === "ADD_MOVIE_FAVORITE") {
+      return {
+        ...state,
+        moviesFavourites: [...state.moviesFavourites.concat(action.payload)],
+      };
     }
-    
-    if (action.type === GET_MOVIES) {
-        return {
-            ...state,
-            moviesLoaded: [...state.payload.Search]
-        }
+    if (action.type === "GET_MOVIES") {
+      return {
+        ...state,
+        moviesLoaded: action.payload.Search,
+      };
     }
-
-    if(action.type === GET_MOVIES_DETAIL ){
-        return{
-            ...state,
-            moviesDeatail: action.payload
-        }
+  
+    if (action.type === "REMOVE_MOVIE_FAVORITE") {
+      return {
+        ...state,
+        moviesFavourites: state.moviesFavourites.filter(
+          (movie) => movie.id !== action.payload
+        ), //imdbID
+      };
     }
-
-    if(action.type ===REMOVE_MOVIE_DETAIL){
-        return{
-            ...state,
-            moviesFavourities:  state.moviesFavourities.filter( movie =>{
-                movie.id !== action.payload
-            })
-        }
+  
+    if (action.type === "GET_DETAIL") {
+      return {
+        ...state,
+        movieDetail: action.payload,
+      };
     }
-}
-
-
-
-
-
-
-
-export default rootReducer;
+    return state;
+  }
+  
+  export default rootReducer;
