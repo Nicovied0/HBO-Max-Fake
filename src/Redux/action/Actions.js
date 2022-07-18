@@ -33,7 +33,7 @@ const API_KEY = "1977a73f";
 
 export const ADD_MOVIE_FAVORITE = 'ADD_MOVIE_FAVORITE';
 export const GET_MOVIES = 'GET_MOVIES';
-export const GET_MOVIES_DETAIL = 'GET_MOVIES_DETAIL';
+export const GET_MOVIES_DETAIL = 'GET_DETAIL';
 export const REMOVE_MOVIE_DETAIL = 'REMOVE_MOVIE_DETAIL';
 
 
@@ -70,7 +70,7 @@ export function getMovies(titule) {
 
 export function getMovieDetail(id) {
     return function (dispatch) {
-        return fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${id}`)
+        return fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`)
             .then(r => r.json())
             .then(movie => {
                 dispatch({
