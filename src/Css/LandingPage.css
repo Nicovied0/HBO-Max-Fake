@@ -1,0 +1,5 @@
+.Btn-home{
+    display: inline-block;  
+    background-image: linear-gradient(2deg,rgba(20,0,255,1) 12%,rgba(114,170,255,1) 89%);
+}
+
